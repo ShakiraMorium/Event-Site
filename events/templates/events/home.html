@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto py-8 px-4">
+  <h1 class="text-3xl font-bold mb-6">All Events</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for event in events %}
+    <div class="bg-white rounded-xl shadow p-4">
+      <img src="{% static 'images/'|add: event.image %}" alt="{{ event.title }}" class="w-full h-48 object-cover rounded-md mb-3">
+      
+      <h2 class="text-xl font-semibold">{{ event.title }}</h2>
+      <p class="text-gray-600 text-sm">{{ event.start_datetime|date:"D, d M Y H:i" }}</p>
+      <p class="text-gray-700 mt-2">{{ event.description|truncatewords:20 }}</p>
+
+      <a href="{% url 'event-detail' event.id %}" class="mt-3 inline-block text-blue-600 hover:underline">
+        View Details →
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load event_extras  %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">All Events</h1>
+
+<div class="grid grid-cols-3 gap-6">
+  {% for event in events %}
+    <div class="border rounded shadow p-4">
+      {% if event.image %}
+        <img src="{{ event.image.banner.jpg}}" alt="{{ event.title }}" class="w-full h-48 object-cover rounded mb-2" />
+      {% else %}
+        <img src="{% static 'images/pic1.jpg' %}" alt="Default image" class="w-full h-48 object-cover rounded mb-2" />
+      {% endif %}
+      <h2 class="text-xl font-semibold">{{ event.title }}</h2>
+      <p class="text-gray-600">Start: {{ event.start_datetime|humanized_date }}</p>
+      <p>{{ event.description|truncatewords:20 }}</p>
+      <a href="{% url 'event-detail' event.id %}" class="text-blue-600 hover:underline mt-2 block">View Details</a>
+    </div>
+  {% empty %}
+    <p>No events found.</p>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+
+{% load static %}
+<div class="navbar  p-8">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-blue-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a href="{% url 'home' %}" class="btn btn-ghost">Home</a></li>
+        {% comment %} <li><a href="{% url 'all_event' %}" class="btn btn-ghost">All Event</a></li> {% endcomment %}
+        {% comment %} <li><a href="{% url 'dashboard' %}" class="btn btn-ghost">Dashboard</a></li> {% endcomment %}
+        
+      </ul>
+    </div>
+    <a class="btn btn-ghost text-4xl font-bold"><span class="text-green-800">E</span><span class="text-red-400">v</span><span class="text-blue-500">e</span><span class="text-yellow-500">n</span><span class="text-pink-500">t</span>-Management</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="{% url 'home' %}" class="btn btn-ghost">Home</a> 
+        </li>
+         {% comment %} <li><a href="{% url 'event_list' %}" class="btn btn-ghost">All Events</a></li>  {% endcomment %}
+        <li><a  href="{% url 'dashboard' %}" class="btn btn-ghost">Dashboard</a></li>
+          </ul>
+        </details>
+      </li> 
+     
+    </ul> 
+     {% comment %} {% if user.is_authenticated %}
+       <a href="{% url 'logout' %}">Logout</a>
+     {% else %}
+       <a href="{% url 'login' %}">Login</a>
+       <a href="{% url 'signup' %}">Sign Up</a>
+     {% endif %} {% endcomment %}
+
+  </div>
+
+</div>

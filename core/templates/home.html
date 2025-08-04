@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+<!-- Hero Section -->
+{% comment %} <section class="bg-blue-600 text-white py-32 md:py-40">
+  <div class="container mx-auto px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+      Organise Events Seamlessly with EventSite
+    </h1>
+    <p class="text-xl mb-12">
+      Simplify planning, coordination, and management with our all-in-one event solution
+    </p>
+    <a
+      href="#"
+      class="bg-white text-blue-600 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100 transition duration-300"
+    >
+      Plan Your First Event
+    </a>
+  </div>
+</section> {% endcomment %}
+  {% comment %} <div class="relative w-full">
+      
+      <!--  Navbar overlayed on banner -->
+      <div class="absolute top-0 left-0 w-full z-50  bg-opacity-40 ">
+        <div class="container mx-auto">
+          {% include 'events/partials/navbar.html' %}
+        </div>
+      </div>
+
+      <!--  Banner image -->
+      <img src="{% static 'images/banner-2.jpg' %}" alt="Banner" class="w-full h-[200px] object-cover" />
+    </div>
+
+<!-- Features Section --> {% endcomment %}
+ {% comment %} {% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Event Site{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+   
+  </head>
+
+  <body class="bg-base-100 mx-auto my-auto">
+    {% include 'events/partials/navbar.html' %}
+
+    {% comment %} {% block content %} {% endcomment %}
+      <!-- Default content shown on home page -->
+
+      {% comment %} <div class="carousel w-full">
+        <div id="item1" class="carousel-item w-full">
+          <img
+            src=""
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      <div>
+        <h1 class="text-center font-bold text-3xl p-4">Upcoming Events</h1>
+
+        <div class="container mx-auto p-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {% for event in events %}
+              {% include 'events/partials/event_card.html' %}
+            {% empty %}
+              <p>All Events Available.</p>
+            {% endfor %}
+          </div>
+           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> {% endcomment %}
+      {% comment %} {% for event in events %} {% endcomment %}
+      {% comment %} <div class="card bg-white shadow-md rounded-xl overflow-hidden">
+        {% if event.image %}
+        <img src="{{ event.image.url }}" alt="{{ event.title }}" class="h-48 w-full object-cover">
+        {% endif %}
+        <div class="p-4">
+          <h2 class="text-xl font-semibold">Event Tittle:{{ event.title }}</h2>
+          <p class="text-gray-600 text-sm">Description:{{ event.description|truncatechars:100 }}</p>
+          <p class="text-gray-500 text-sm mt-2">Date: {{ event.date }}</p>
+        </div>
+      </div>
+      {% comment %} {% empty %} {% endcomment %}
+
+          {% comment %} <div class="mt-6 text-center">
+            <a href="{% url 'all_event' %}" class="btn btn-primary">See All Events</a>
+          </div>
+        </div>
+      </div> {% endcomment %}
+    {% comment %} {% endblock %} {% endcomment %}
+{% comment %} 
+    {% include 'events/partials/footer.html' %}
+  </body>
+{% comment %} </html> {% endcomment %} 
+
+
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-base-100">
+
+    <!--  Banner section with navbar on top -->
+    <div class="relative w-full">
+      
+      <!--  Navbar overlayed on banner -->
+      <div class="absolute top-0 left-0 w-full z-50  bg-opacity-40 ">
+        <div class="container mx-auto">
+          {% include 'events/partials/navbar.html' %}
+        </div>
+      </div>
+
+      <!--  Banner image -->
+      <img src="{% static 'images/banner-2.jpg' %}" alt="Banner" class="w-full h-[400px] object-cover" />
+    </div>
+
+    <!-- Events Section -->
+    <div class="mt-10">
+      <h1 class="text-center font-bold text-3xl mb-6">Upcoming Events</h1>
+
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+         {% for event in events %} 
+             {% include 'events/partials/event_card.html' %}
+          {% empty %} 
+            
+
+          
+          
+        </div>
+
+        <div class="mt-10 text-center">
+           <a href="{% url 'event-list' %}" class="btn btn-primary">See All Events</a>  
+         
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    
+ 
+<section class="py-24 md:py-32 bg-blue-100">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-16">
+      Designed for Every Role in Event Planning
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Organizer Card -->
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <h3 class="text-2xl font-semibold mb-6">Organizer</h3>
+        <ul class="list-disc list-inside text-gray-600 space-y-3">
+          <li>Create event details</li>
+          <li>Assign  coordinate teams</li>
+          <li>Send invites and manage Groups</li>
+          <li>Track event timeline </li>
+        </ul>
+      </div>
+      <!-- Vendor Card -->
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <h3 class="text-2xl font-semibold mb-6">Vendor</h3>
+        <ul class="list-disc list-inside text-gray-600 space-y-3">
+          <li>Receive and confirm event requests</li>
+          <li>Submit quotes and invoices</li>
+          <li>Communicate with event organizers</li>
+          <li>Update delivery </li>
+        </ul>
+      </div>
+      <!-- Participant Card -->
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <h3 class="text-2xl font-semibold mb-6">Participant</h3>
+        <ul class="list-disc list-inside text-gray-600 space-y-3">
+          <li>View upcoming events and details</li>
+          <li>Submit Groups and feedback</li>
+          <li>Access event schedule and venue info</li>
+          <li>Engage with speakers and other guests</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-gray-200 py-24 md:py-32">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">
+      Ready to Elevate Your Next Event?
+    </h2>
+    <p class="text-xl mb-12">
+      Join event professionals who trust EventSite for flawless execution
+    </p>
+    <a
+      href="#"
+      class="bg-blue-500 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-600 transition duration-300"
+    >
+      Get Started for Free
+    </a>
+  </div>
+</section>
+{% include 'events/partials/footer.html' %}
+{% endblock %}
+ </body>
+</html>
