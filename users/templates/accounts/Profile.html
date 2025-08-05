@@ -32,9 +32,9 @@
         <div class="  bg-white shadow-md rounded-lg p-6">
           <div class="flex items-center mb-6">
             {% if profile_image %}
-                <img src="{{ profile_image.url }}" ... >
+                <img src="{{ user.profile_img.url }}" ... >
             {% else %}
-                <img src="{{ MEDIA_URL }}profile_img/default.jpg" ... >
+                <img src="/media/profile_img/default.jpg" alt="Default Image" class="w-24 h-24 rounded-full">
             {% endif %}
 
 

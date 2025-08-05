@@ -1,9 +1,14 @@
+
 {% extends "base.html" %}
 
 {% block content %}
   <div class="max-w-3xl mx-auto py-8 px-4 bg-white rounded-lg shadow">
     <h1 class="text-3xl font-bold mb-4">{{ event.title }}</h1>
-    <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-64 object-cover rounded mb-4">    
+    {% if event.image %}
+    <img src="{{ static.images.url}}" alt="{{ event.title }}" class="w-full h-64 object-cover rounded mb-4">   
+    {% else %} 
+    <p>No image available</p>
+    {% endif %}
     <p class="text-gray-600">
       <strong>Date:</strong> {{ event.start_datetime|date:"D, d M Y H:i" }}
     </p>

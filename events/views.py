@@ -156,6 +156,7 @@ class AttendeeDashboardView(LoginRequiredMixin, AttendeeRequiredMixin, ListView)
 # views.py
 class AdminDashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/admin_dashboard.html'
+    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

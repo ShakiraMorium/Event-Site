@@ -9,8 +9,8 @@ urlpatterns = [
     path('event/<int:event_id>/update/', UpdateEventView.as_view(), name='update-event'),
     path('event/<int:event_id>/delete/', DeleteEventView.as_view(), name='delete-event'),
     
-    path('dashboard/admin', AdminDashboardView.as_view(), name='admin-dashboard'),
+    path('dashboard/admin/', AdminDashboardView.as_view(), name='admin_dashboard'),
     path('dashboard/', DashboardRedirectView.as_view(), name='dashboard'),
-    path('dashboard/organizer/', OrganizerDashboardView.as_view(), name='organizer-dashboard'),
+    path('dashboard/organizer/', OrganizerDashboardView.as_view(), name='organizer_dashboard'),
     path('dashboard/attendee/', AttendeeDashboardView.as_view(), name='attendee-dashboard'),
 ]

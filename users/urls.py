@@ -17,7 +17,7 @@ urlpatterns = [
     path('activate/<int:user_id>/<str:token>/', activate_user, name='activate-user'),
 
     # Admin dashboard and management URLs
-    path('admin-dashboard/', AdminDashboardView.as_view(), name='admin-dashboard'),
+    path('dashboard/', AdminDashboardView.as_view(), name='admin_dashboard'),
     path('assign-role/<int:user_id>/', AssignRoleView.as_view(), name='assign-role'),
     path('create-group/', CreateGroupView.as_view(), name='create-group'),
     path('group-list/', GroupListView.as_view(), name='group-list'),

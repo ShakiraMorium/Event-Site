@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "asgiref",
         "bxyg",
         "enctype",
         "endcomment",
@@ -15,12 +16,15 @@
         "overlayed",
         "Poposal",
         "postgre",
+        "psycopg",
         "rgba",
         "samibold",
+        "sqlparse",
         "stylesheet",
         "tabindex",
         "timesince",
         "truncatewords",
+        "tzdata",
         "uidb"
     ]
 }
