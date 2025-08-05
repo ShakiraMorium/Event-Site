@@ -6,8 +6,10 @@
     {% for event in events %}
         <div class="event-card">
             <h2>{{ event.title }}</h2>
-            {% if event.image %}
-                <img src="{{ event.image.url }}" alt="{{ event.title }}" style="max-width:300px;">
+            {% if events.image %}
+                <img src="{{ events.images.url }}" ... >
+            {% else %}
+                <img src="/media/events/images" alt="Default Image" class="w-24 h-24 rounded-full">
             {% endif %}
             <p>{{ event.description }}</p>
             <p>Start: {{ event.start_datetime }}</p>

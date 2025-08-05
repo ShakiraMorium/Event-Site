@@ -17,6 +17,7 @@
         "Poposal",
         "postgre",
         "psycopg",
+        "pycache",
         "rgba",
         "samibold",
         "sqlparse",
