@@ -1,4 +1,4 @@
-
+import dj_database_url
 import os
 
 from pathlib import Path
@@ -77,15 +77,21 @@ WSGI_APPLICATION = 'event_management.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': config('DB_NAME', default=''), 
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD', default=''), 
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT', cast=int),
+#         }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': config('DB_NAME', default=''), 
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD', default=''), 
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', cast=int),
-        }
+    'default': dj_database_url.config(
+        default='postgresql://event_site_db_user:mwODCDwXehO2fuT6CzlVMCH11y5PbiTE@dpg-d294kjali9vc739gm5p0-a.oregon-postgres.render.com/event_site_db',
+        conn_max_age=600
+    )
 }
 
 # for email
